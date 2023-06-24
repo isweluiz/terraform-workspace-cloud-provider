@@ -41,6 +41,7 @@ variable "instance_root_disk_size" {
 
 variable "ansible_key_name" {
   type = string
+  default = "ansible_key"
 }
 
 variable "ansible_public_key" {
