@@ -1,10 +1,10 @@
 terraform {
-    cloud {
-      organization = "isweluiz"
-      workspaces {
-        tags = ["terraform-workspace-cloud-provider"]
-      }
-    }
+    # cloud {
+    #   organization = "isweluiz"
+    #   workspaces {
+    #     tags = ["terraform-workspace-cloud-provider"]
+    #   }
+    # }
 
   required_providers {
     aws = {
