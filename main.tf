@@ -1,10 +1,10 @@
 terraform {
-  #   cloud {
-  #     organization = "isweluiz"
-  #     workspaces {
-  #       tags = ["terraform-workspace-cloud-provider"]
-  #     }
-  #   }
+    cloud {
+      organization = "isweluiz"
+      workspaces {
+        tags = ["terraform-workspace-cloud-provider"]
+      }
+    }
 
   required_providers {
     aws = {
@@ -17,6 +17,9 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = var.aws_main_region
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
+
   default_tags {
     tags = {
       Environment = "LAB"
