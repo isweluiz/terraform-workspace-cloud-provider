@@ -35,16 +35,24 @@ resource "aws_key_pair" "ansible" {
 }
 
 # Instance web
-# module "ec2_instance_web" {
-#   source = "./modules/ec2_web"
+module "ec2_instance_web" {
+  source = "./modules/ec2_web"
 
-#   team_name               = "infra"
-#   service_name            = "web"
-#   env                     = var.env
-#   ansible_key_name        = aws_key_pair.ansible.id
-#   aws_main_region         = var.aws_main_region
-#   instance_type           = "t3.micro"
-#   instances_count_web     = 1
-#   instance_root_disk_size = var.instance_root_disk_size
-# }
+  team_name               = "infra"
+  service_name            = "web"
+  env                     = var.env
+  ansible_key_name        = aws_key_pair.ansible.id
+  aws_main_region         = var.aws_main_region
+  instance_type           = "t3.micro"
+  instances_count_web     = 1
+  instance_root_disk_size = var.instance_root_disk_size
+}
 
+# IAM
+module "iam_role" {
+  source = "./modules/iam"
+
+  team_name    = "infra"
+  service_name = "web"
+  env          = var.env
+}
