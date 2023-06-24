@@ -1,5 +1,5 @@
 variable "instance_type" {
-  type = string
+  type    = string
   default = "t3.micro"
 }
 
@@ -20,22 +20,22 @@ variable "env" {
 }
 
 variable "team_name" {
-  type = string
+  type    = string
   default = "infra"
 }
 
 variable "service_name" {
-  type = string
+  type    = string
   default = "web"
 }
 
 variable "instances_count_web" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "instance_root_disk_size" {
-  type = number
+  type    = number
   default = 10
 }
 
@@ -46,11 +46,11 @@ variable "ansible_key_name" {
 variable "ansible_public_key" {
   type      = string
   sensitive = true
-  default = ""
+  default   = ""
 }
 
 variable "instance_root_disk_type" {
-  type = string
+  type    = string
   default = "standard"
 }
 
