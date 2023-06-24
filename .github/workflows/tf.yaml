@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_hostname: 'app.terraform.io'
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform fmt
         id: fmt
@@ -38,7 +41,7 @@ jobs:
 
       - name: Terraform Validate
         id: validate
-        run: terraform validate 
+        run: terraform validate -no-color
         working-directory: ${{ env.working_directory }}
 
       - name: Terraform Plan
@@ -46,7 +49,7 @@ jobs:
           github.event_name == 'pull_request' &&
           github.event.pull_request.draft == false
         id: plan
-        run: terraform plan
+        run: terraform plan -no-color
         continue-on-error: true
         working-directory: ${{ env.working_directory }}
 
