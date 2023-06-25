@@ -20,8 +20,12 @@ data "aws_iam_policy_document" "lb_ro" {
 }
 
 resource "aws_iam_user_policy" "lb_ro" {
-  name   = "test"
+  name   = "terraform_policy_lab"
   user   = aws_iam_user.terraform_gh.name
   policy = data.aws_iam_policy_document.lb_ro.json
 }
 
+
+output "secret_access_key" {
+  value = aws_iam_access_key.lab.secret
+}
