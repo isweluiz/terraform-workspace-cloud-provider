@@ -48,3 +48,11 @@ module "ec2_instance_web" {
   instance_root_disk_size = var.instance_root_disk_size
 }
 
+# IAM
+module "iam_role" {
+  source = "./modules/iam"
+
+  team_name    = "infra"
+  service_name = "web"
+  env          = var.env
+}
